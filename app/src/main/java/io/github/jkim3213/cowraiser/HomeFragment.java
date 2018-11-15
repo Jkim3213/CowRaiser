@@ -44,7 +44,7 @@ public class HomeFragment extends Fragment {
 
 
 
-        Toast.makeText(getContext(), "Welcome to Activities screen.", Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(), "Welcome to Home.", Toast.LENGTH_SHORT).show();
 
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
