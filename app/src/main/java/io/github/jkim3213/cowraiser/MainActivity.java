@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,101 +16,59 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+        implements BottomNavigationView.OnNavigationItemSelectedListener{
 
-    private TextView mTextMessage;
-
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    //mTextMessage.setText(R.string.title_home);
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
-                    return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
-                    return true;
-                case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
-                    return true;
-            }
-            return false;
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-
-
-        ListView myListView = findViewById(R.id.myListView);
-
-        //Call WEB SERVER for USERProfile and items,,, login....so when they buy they request an increase on the item
+        //Move this to successful login TODO
         for(String item : StoreActivity.itemNamesArr) {
             UserProfile.inventory.put(item, 0);
         }
+        setContentView(R.layout.activity_main);
 
 
-        ArrayList<String> arrayList = new ArrayList<String>();
-        arrayList.add(getString(R.string.vegetarian_title));
-        arrayList.add(getString(R.string.light_title));
-        arrayList.add(getString(R.string.altertransport_title));
-        arrayList.add(getString(R.string.shower_title));
-        arrayList.add(getString(R.string.rice_title));
-        arrayList.add(getString(R.string.publtransport_title));
+        BottomNavigationView navigation = findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(this);
+
+        loadFragment(new HomeFragment());
+    }
+
+    //load frag
+    private boolean loadFragment(Fragment fragment) {
+        //switching fragment
+        if (fragment != null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
+    }
 
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        Fragment fragment = null;
 
+        switch (menuItem.getItemId()) {
+            case R.id.navigation_home:
+                fragment = new HomeFragment();
+                break;
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
-        myListView.setAdapter(arrayAdapter);
+            case R.id.navigation_dashboard:
+                fragment = new DashboardFragment();
+                break;
 
-        Toast.makeText(getApplicationContext(), "Welcome to Activities screen.", Toast.LENGTH_LONG).show();
+            case R.id.navigation_notifications:
+                fragment = new NotificationsFragment();
+                break;
+        }
 
-        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Intent intent = null;
-                switch(position) {
-                    case 0:
-                        intent = new Intent(getApplicationContext(), VegetarianChallenge.class);
-                        break;
-                    case 1:
-                        intent = new Intent(getApplicationContext(), LightChallenge.class);
-                        break;
-                    case 2:
-                        intent = new Intent(getApplicationContext(), AltTransportChallenge.class);
-                        break;
-                    case 3:
-                        intent = new Intent(getApplicationContext(), ShowerChallenge.class);
-                        break;
-                    case 4:
-                        intent = new Intent(getApplicationContext(), StoreActivity.class);
-                        break;
-                    case 5:
-                        intent = new Intent(getApplicationContext(), StatisticsActivity.class);
-                        break;
-
-                    default:
-                        System.err.println("Broken Activity");
-                }
-                startActivity(intent);
-
-
-            }
-        });
-
+        return loadFragment(fragment);
     }
 
 
