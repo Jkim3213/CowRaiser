@@ -23,6 +23,10 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Move this to successful login TODO
+        for(String item : StoreActivity.itemNamesArr) {
+            UserProfile.inventory.put(item, 0);
+        }
         setContentView(R.layout.activity_main);
 
 
