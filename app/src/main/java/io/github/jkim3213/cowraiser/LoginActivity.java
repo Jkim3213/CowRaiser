@@ -37,12 +37,17 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-    public boolean validate(String userName, String password)
-    {
-        if(userName.equals("Burdell") && password.equals("1234"))
+    public boolean validate(String userName, String password) {
+        if (userName.equals("Burdell") && password.equals("1234")) {
+            //Move this to successful login TODO
+            for(String item : StoreActivity.itemNamesArr) {
+                UserProfile.inventory.put(item, 0);
+            }
             return true;
-        else
+        }
+        else {
             return false;
+        }
     }
 
 }
