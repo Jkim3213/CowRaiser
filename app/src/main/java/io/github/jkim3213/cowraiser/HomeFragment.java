@@ -1,21 +1,33 @@
 package io.github.jkim3213.cowraiser;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TableLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
 
 public class HomeFragment extends Fragment {
+
+    private ViewGroup haven;
+    private View view;
 
     @Nullable
     @Override
@@ -26,7 +38,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        this.view = view;
 
 
         ArrayList<String> arrayList = new ArrayList<String>();
@@ -41,6 +53,7 @@ public class HomeFragment extends Fragment {
         ListView myListView = view.findViewById(R.id.myListView);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, arrayList);
         myListView.setAdapter(arrayAdapter);
+        haven = view.findViewById(R.id.haven);
 
 
 
@@ -80,6 +93,29 @@ public class HomeFragment extends Fragment {
             }
         });
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        fillHaven();
+    }
+
+    private void fillHaven() {
+        //TODO to be replaced when we have a real haven
+        haven.removeAllViews();
+        for(Map.Entry<String, Integer> item : UserProfile.inventory.entrySet()){
+            System.out.println("uoyoyWHatthefucko");
+            for(int i = 0; i < item.getValue(); i++) {
+                System.out.println(item.getValue());
+                TextView tv = new TextView(getContext());
+                tv.setText(item.getKey());
+                haven.addView(tv);
+            }
+
+        }
+
 
     }
+
 }
