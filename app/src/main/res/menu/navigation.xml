@@ -2,14 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/releaf_nav_icons0001"
         android:title="@string/title_home" />
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+        android:id="@+id/navigation_shop"
+        android:icon="@drawable/releaf_nav_icons0002"
+        android:title="@string/title_Shop" />
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
+        android:id="@+id/navigation_carbonVisualizations"
+        android:icon="@drawable/releaf_nav_icons0004"
+        android:title="@string/title_CO2" />
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/releaf_nav_icons0005"
+        android:title="@string/title_Profile" />
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/releaf_nav_icons0003"
+        android:title="@string/title_Settings" />
+
 </menu>

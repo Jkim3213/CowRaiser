@@ -7,14 +7,6 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements BottomNavigationView.OnNavigationItemSelectedListener{
@@ -53,19 +45,29 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         Fragment fragment = null;
-
+        Intent toStoreAct;
         switch (menuItem.getItemId()) {
             case R.id.navigation_home:
                 fragment = new HomeFragment();
                 break;
 
-            case R.id.navigation_dashboard:
-                fragment = new DashboardFragment();
+            case R.id.navigation_shop:
+
+                //fragment = new DashboardFragment();
+
+                toStoreAct = new Intent(getApplicationContext(), StoreActivity.class);
+                startActivity(toStoreAct);
                 break;
 
-            case R.id.navigation_notifications:
-                fragment = new NotificationsFragment();
+            case R.id.navigation_carbonVisualizations:
+                fragment = new CarbonVisualizationFragment();
                 break;
+
+            case R.id.navigation_profile:
+                fragment = new ProfileFragment();
+                break;
+            case R.id.navigation_settings:
+                fragment = new SettingsFragment();
         }
 
         return loadFragment(fragment);
