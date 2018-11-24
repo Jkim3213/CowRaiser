@@ -28,7 +28,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (!validate(userName.getText().toString(),password.getText().toString())) {
                     //some error message here
-                } else {
+                } else {//TODO for userprofile
+                    for(String item : StoreActivity.itemNamesArr) {
+                        UserProfile.inventory.put(item, 1);
+                    }
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
@@ -37,12 +40,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-    public boolean validate(String userName, String password)
-    {
-        if(userName.equals("Burdell") && password.equals("1234"))
+    public boolean validate(String userName, String password) {
+        if (userName.equals("Burdell") && password.equals("1234")) {
             return true;
-        else
+        }
+        else {
             return false;
+        }
     }
 
 }
