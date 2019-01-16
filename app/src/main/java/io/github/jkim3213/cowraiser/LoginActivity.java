@@ -21,8 +21,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         btnLogin=findViewById(R.id.loginButton);
-        userName=findViewById(R.id.usernameField);
-        password=findViewById(R.id.passwordField);
+        userName=findViewById(R.id.loginEmailField);
+        password=findViewById(R.id.loginPasswordField);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

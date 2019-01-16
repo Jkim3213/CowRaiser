@@ -14,8 +14,8 @@
     <string name="light_desc">Description placeholder</string>
     <string name="altertransport_title">Alternate Transportation</string>
     <string name="altertransport_desc">Description placeholder</string>
-    <string name="shower_title">Shower with Dad</string>
-    <string name="shower_desc">By showering with your dad, you can reduce the amount of water
+    <string name="shower_title">5 min Shower</string>
+    <string name="shower_desc">By reducing the duration of your shower, you can reduce the amount of water
     you use and learn to have a good time.</string>
     <string name="rice_title">Don\'t Touch My Rice</string>
     <string name="rice_desc">Description placeholder</string>
@@ -30,14 +30,18 @@
     <string name="buy">Buy</string>
     <string name="item_name" translatable="false">%s</string>
     <string name="ecodollars">ecodollars</string>
-    <string name="username">Username</string>
+    <string name="Email">E-mail</string>
     <string name="password">Password</string>
+    <string name="fullname">Full name</string>
     <string name="register">Register</string>
+    <string name="Registration">Registration</string>
     <string name="login">Login</string>
     <string name="forgotpassword">I forgot my password</string>
     <string name="title_Profile">Profile</string>
     <string name="title_Settings">Settings</string>
     <string name="title_CO2">CO2</string>
     <string name="title_Shop">Shop</string>
+    <string name="AppLogo">AppLogo</string>
+    <string name="registerProfilePhoto">registerProfilePhoto</string>
 
 </resources>
