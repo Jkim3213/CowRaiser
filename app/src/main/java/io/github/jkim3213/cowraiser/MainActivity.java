@@ -52,8 +52,9 @@ public class MainActivity extends AppCompatActivity
 
                 //fragment = new DashboardFragment();
 
-                toStoreAct = new Intent(getApplicationContext(), StoreActivity.class);
-                startActivity(toStoreAct);
+//                toStoreAct = new Intent(getApplicationContext(), StoreFragment.class);
+//                startActivity(toStoreAct);
+                fragment = new StoreFragment();
                 break;
 
             case R.id.navigation_carbonVisualizations:

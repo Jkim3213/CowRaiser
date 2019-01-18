@@ -20,7 +20,7 @@
         <activity android:name=".RiceChallenge"></activity>
         <activity android:name=".PublTransportChallenge"></activity>
         <activity android:name=".StatisticsActivity"></activity>
-        <activity android:name=".StoreActivity"></activity>
+        <activity android:name=".StoreFragment"></activity>
         <activity android:name=".LoginActivity"
             android:theme="@style/LoginTheme">
             <intent-filter>

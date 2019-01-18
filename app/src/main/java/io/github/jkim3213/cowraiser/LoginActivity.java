@@ -1,6 +1,5 @@
 package io.github.jkim3213.cowraiser;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -29,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (!validate(userName.getText().toString(),password.getText().toString())) {
                     //some error message here
                 } else {//TODO for userprofile
-                    for(String item : StoreActivity.itemNamesArr) {
+                    for(String item : StoreFragment.itemNamesArr) {
                         UserProfile.inventory.put(item, 1);
                     }
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
