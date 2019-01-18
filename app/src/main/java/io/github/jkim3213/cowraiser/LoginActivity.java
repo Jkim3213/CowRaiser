@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
@@ -15,6 +16,8 @@ public class LoginActivity extends AppCompatActivity {
     AutoCompleteTextView userName;
     EditText password;
 
+    private TextView signup;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +25,9 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin=findViewById(R.id.loginButton);
         userName=findViewById(R.id.loginEmailField);
         password=findViewById(R.id.loginPasswordField);
+
+        signup = findViewById(R.id.signup_text);
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,6 +44,14 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(getApplicationContext(), RegistrationActivity.class));
+            }
+        });
     }
     public boolean validate(String userName, String password) {
         if (userName.equals("Burdell") && password.equals("1234")) {
@@ -47,5 +61,11 @@ public class LoginActivity extends AppCompatActivity {
             return false;
         }
     }
+
+
+
+    //sign up
+
+
 
 }
