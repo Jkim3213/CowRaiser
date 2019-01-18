@@ -11,17 +11,17 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name">
-        </activity>
-        <activity android:name=".VegetarianChallenge"></activity>
-        <activity android:name=".LightChallenge"></activity>
-        <activity android:name=".AltTransportChallenge"></activity>
-        <activity android:name=".ShowerChallenge"></activity>
-        <activity android:name=".RiceChallenge"></activity>
-        <activity android:name=".PublTransportChallenge"></activity>
-        <activity android:name=".StatisticsActivity"></activity>
-        <activity android:name=".StoreFragment"></activity>
-        <activity android:name=".LoginActivity"
+            android:label="@string/app_name" />
+        <activity android:name=".VegetarianChallenge" />
+        <activity android:name=".LightChallenge" />
+        <activity android:name=".AltTransportChallenge" />
+        <activity android:name=".ShowerChallenge" />
+        <activity android:name=".RiceChallenge" />
+        <activity android:name=".PublTransportChallenge" />
+        <activity android:name=".StatisticsActivity" />
+        <activity android:name=".StoreFragment" />
+        <activity
+            android:name=".LoginActivity"
             android:theme="@style/LoginTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,10 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegistrationActivity"
-            android:label="@string/Registration"></activity>
-
-
+        <activity android:name=".RegistrationActivity"></activity>
     </application>
 
 </manifest>
