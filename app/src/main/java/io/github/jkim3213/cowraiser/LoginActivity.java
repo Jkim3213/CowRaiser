@@ -1,13 +1,22 @@
 package io.github.jkim3213.cowraiser;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
@@ -18,54 +27,89 @@ public class LoginActivity extends AppCompatActivity {
 
     private TextView signup;
 
+    private FirebaseAuth mAuth;
+    private ProgressDialog pDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        btnLogin=findViewById(R.id.loginButton);
-        userName=findViewById(R.id.loginEmailField);
-        password=findViewById(R.id.loginPasswordField);
+
+
+        mAuth = FirebaseAuth.getInstance();
+        pDialog = new ProgressDialog(this);
+
+
+        btnLogin = findViewById(R.id.loginButton);
+        userName = findViewById(R.id.loginEmailField);
+        password = findViewById(R.id.loginPasswordField);
 
         signup = findViewById(R.id.signup_text);
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!validate(userName.getText().toString(),password.getText().toString())) {
-                    //some error message here
-                } else {//TODO for userprofile
-                    for(String item : StoreFragment.itemNamesArr) {
-                        UserProfile.inventory.put(item, 1);
-                    }
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
-                }
-            }
-        });
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 startActivity(new Intent(getApplicationContext(), RegistrationActivity.class));
+
             }
         });
-    }
-    public boolean validate(String userName, String password) {
-        if (userName.equals("Burdell") && password.equals("1234")) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String mEmail = userName.getText().toString().trim();
+                String mPass = password.getText().toString().trim();
+
+                if (TextUtils.isEmpty(mEmail)) {
+
+                    userName.setError("username is required.");
+                    return;
+                }
+                if (TextUtils.isEmpty(mPass)) {
+
+                    password.setError("Password is required.");
+                    return;
+
+                }
 
 
+
+                pDialog.setMessage("Loading....");
+                pDialog.show();
+
+                mAuth.signInWithEmailAndPassword(mEmail, mPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        if (task.isSuccessful()) {
+
+                            Toast.makeText(getApplicationContext(),"Login Successful", Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            pDialog.dismiss();
+                        } else {
+
+                            Toast.makeText(getApplicationContext(), "help is on the way", Toast.LENGTH_SHORT);
+                            pDialog.dismiss();
+                        }
+
+                    }
+                });
+            }
+        });
+
+
+
+
+
+
+
+    }
+
+}
 
     //sign up
 
 
 
-}
+
