@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "374300525119",
+    "firebase_url": "https://releaf-5d9b1.firebaseio.com",
+    "project_id": "releaf-5d9b1",
+    "storage_bucket": "releaf-5d9b1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374300525119:android:2efed131ddf7c216",
+        "android_client_info": {
+          "package_name": "io.github.jkim3213.cowraiser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "374300525119-gliavjnsbl637gb6libu1nsd5khnoe7p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.github.jkim3213.cowraiser",
+            "certificate_hash": "4b94f4aa8a8eb93fd95774402e9799776e271a6c"
+          }
+        },
+        {
+          "client_id": "374300525119-6iu2v1dvfk29og9n5m77ickgh4af5qa6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDK_mSDaqaCGdLl9_wz1fwo9r1g_EMK9C8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "374300525119-6iu2v1dvfk29og9n5m77ickgh4af5qa6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
