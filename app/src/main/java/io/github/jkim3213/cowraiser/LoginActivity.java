@@ -73,8 +73,6 @@ public class LoginActivity extends AppCompatActivity {
 
                 }
 
-
-
                 pDialog.setMessage("Loading....");
                 pDialog.show();
 
