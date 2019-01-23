@@ -18,7 +18,6 @@
         <activity android:name=".ShowerChallenge" />
         <activity android:name=".RiceChallenge" />
         <activity android:name=".PublTransportChallenge" />
-        <activity android:name=".StatisticsActivity" />
         <activity android:name=".StoreFragment" />
         <activity
             android:name=".LoginActivity"

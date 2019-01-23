@@ -71,10 +71,10 @@ public class HomeFragment extends Fragment {
                         intent = new Intent(getContext(), ShowerChallenge.class);
                         break;
                     case 4:
-                        intent = new Intent(getContext(), StoreFragment.class);
+                        intent = new Intent(getContext(), RiceChallenge.class);
                         break;
                     case 5:
-                        intent = new Intent(getContext(), StatisticsActivity.class);
+                        intent = new Intent(getContext(), PublTransportChallenge.class);
                         break;
 
                     default:
