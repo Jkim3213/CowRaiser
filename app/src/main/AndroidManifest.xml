@@ -18,7 +18,7 @@
         <activity android:name=".ShowerChallenge" />
         <activity android:name=".RiceChallenge" />
         <activity android:name=".PublTransportChallenge" />
-        <fragment android:name=".StoreFragment" />
+        <activity android:name=".StoreFragment" />
         <activity
             android:name=".LoginActivity"
             android:theme="@style/LoginTheme">
@@ -29,7 +29,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegistrationActivity"></activity>
-        <activity android:name=".PWResetActivity"></activity>
     </application>
 
 </manifest>

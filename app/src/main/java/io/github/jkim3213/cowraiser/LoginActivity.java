@@ -30,9 +30,6 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private ProgressDialog pDialog;
 
-    //TextView for password reset - Jin
-    private TextView pwReset;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,10 +54,6 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-
-        //Find the pwReset element - Jin
-        pwReset = findViewById(R.id.pwResetLink);
-
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,14 +95,6 @@ public class LoginActivity extends AppCompatActivity {
 
                     }
                 });
-            }
-        });
-
-        //On pwReset Click, call PWResetActivity.class
-        pwReset.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), PWResetActivity.class));
             }
         });
 

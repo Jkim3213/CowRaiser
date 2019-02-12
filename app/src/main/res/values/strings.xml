@@ -36,8 +36,7 @@
     <string name="register">Register</string>
     <string name="Registration">Registration</string>
     <string name="login">Login</string>
-    <string name="forgotpassword">Forgot your password? Click here to reset</string>
-    <string name="pwResetButton">Send a password reset email</string>
+    <string name="forgotpassword">I forgot my password</string>
     <string name="title_Profile">Profile</string>
     <string name="title_Settings">Settings</string>
     <string name="title_CO2">CO2</string>
