@@ -29,6 +29,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegistrationActivity"></activity>
+        <activity android:name=".PWResetActivity"></activity>
     </application>
 
 </manifest>
