@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 //import com.google.firebase.quickstart.auth.R;
 
@@ -37,8 +39,9 @@ public class RegistrationActivity extends AppCompatActivity {
     private TextView loginText;
 
 
-   private FirebaseAuth mAuth;
-   private ProgressDialog mDialog;
+    private FirebaseAuth mAuth;
+    private ProgressDialog mDialog;
+    private DatabaseReference mDatabase;
 
 
     @Override
@@ -49,6 +52,7 @@ public class RegistrationActivity extends AppCompatActivity {
         //firebase
         mAuth = FirebaseAuth.getInstance();
         mDialog = new ProgressDialog(this);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
 
         email = findViewById(R.id.email_login);
@@ -89,7 +93,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
                         if (task.isSuccessful()) {
-
+                            mDatabase.child("Users").child("mEmail").setValue("mEmail");
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
                             Toast.makeText(getApplicationContext(), "Finally Your registered to Database!!!", Toast.LENGTH_LONG);

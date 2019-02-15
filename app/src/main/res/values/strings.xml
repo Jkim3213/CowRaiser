@@ -43,5 +43,6 @@
     <string name="title_Shop">Shop</string>
     <string name="AppLogo">AppLogo</string>
     <string name="registerProfilePhoto">registerProfilePhoto</string>
+    <string name="Register">Register</string>
 
 </resources>

@@ -7,6 +7,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public abstract class ChallengeActivity extends AppCompatActivity {
 
     protected TextView challengeTitle;
@@ -14,6 +17,7 @@ public abstract class ChallengeActivity extends AppCompatActivity {
     protected Button logButton;
     protected int ecoDollars = 0;
     protected int carbonLbs = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,7 @@ public abstract class ChallengeActivity extends AppCompatActivity {
                 finish();
             }
         });
+
 
     }
 
