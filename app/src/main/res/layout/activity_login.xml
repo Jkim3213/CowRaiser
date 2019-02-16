@@ -12,25 +12,23 @@
 
     <ImageView
         android:id="@+id/appLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="236dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="222dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/colorPrimaryLight"
         android:contentDescription="@string/AppLogo"
         app:srcCompat="@drawable/releaf_nav_icons0006" />
 
     <AutoCompleteTextView
         android:id="@+id/loginEmailField"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="66dp"
         android:hint="@string/Email" />
 
     <EditText
         android:id="@+id/loginPasswordField"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="61dp"
         android:layout_marginBottom="10dp"
         android:autofillHints="@string/password"
         android:ems="10"
@@ -45,23 +43,25 @@
 
         <Button
             android:id="@+id/loginButton"
-            style="@style/Widget.AppCompat.Button.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/login" />
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:layout_marginBottom="40dp"
+            android:background="@color/colorPrimaryLight"
+            android:text="@string/login"
+            android:textSize="22sp" />
 
 
     </LinearLayout>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Don't have an account? Sign Up here"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:gravity="center"
-        android:padding="10dp"
         android:id="@+id/signup_text"
-        />
+        style="@style/Widget.AppCompat.TextView.SpinnerItem"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:clickable="true"
+        android:elevation="2dp"
+        android:gravity="fill_vertical|center"
+        android:text="Don't have an account? Sign Up here"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
 </LinearLayout>
