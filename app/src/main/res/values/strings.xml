@@ -26,6 +26,7 @@
     <string name="num_carbon_lbs">%d</string>
     <string name="carbon_lbs">Pounds of Carbon Saved</string>
     <string name="store">Store</string>
+    <string name="challengespage">Challenges</string>
     <string name="num_ecodollars">%d ecodollars</string>
     <string name="buy">Buy</string>
     <string name="item_name" translatable="false">%s</string>
