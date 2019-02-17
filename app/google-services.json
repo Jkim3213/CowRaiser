@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "374300525119-cl88scki6gou7uvaodtabb93aou6v1bm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.github.jkim3213.cowraiser",
+            "certificate_hash": "7db91f08785e03ae2b73ec4f2daeea55e537819a"
+          }
+        },
+        {
           "client_id": "374300525119-6iu2v1dvfk29og9n5m77ickgh4af5qa6.apps.googleusercontent.com",
           "client_type": 3
         }

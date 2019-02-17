@@ -1,5 +1,15 @@
 package io.github.jkim3213.cowraiser;
 
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+//package io.github.jkim3213.cowraiser;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -51,9 +61,9 @@ public class SettingsFragment extends Fragment {
                 if (user != null) {
                     Log.d(TAG, "onAuthStateChanged: signed_in: " + user.getUid());
                 } else {
-
+                    UserProfile.resetUser();
                     Log.d(TAG, "onAuthStateChanged: signed out");
-                    Toast.makeText(getActivity(),"signed out", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"See You next time", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getActivity(), LoginActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
