@@ -17,13 +17,13 @@ public abstract class ChallengeActivity extends AppCompatActivity {
     protected Button logButton;
     protected int ecoDollars = 0;
     protected int carbonLbs = 0;
-
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_challenge);
-
+        mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + UserProfile.UID);
         challengeTitle = findViewById(R.id.challengeTitle);
         challengeDesc = findViewById(R.id.challengeDesc);
         logButton = findViewById(R.id.logButton);
@@ -31,6 +31,7 @@ public abstract class ChallengeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 UserProfile.carbonLbs += carbonLbs;
                 UserProfile.ecoDollars += ecoDollars;
+                mDatabase.setValue(new UserProfile());
                 String complete = getString(R.string.challenge_complete_toast, ecoDollars);
                 Toast.makeText(getApplicationContext(), complete, Toast.LENGTH_LONG).show();
                 finish();

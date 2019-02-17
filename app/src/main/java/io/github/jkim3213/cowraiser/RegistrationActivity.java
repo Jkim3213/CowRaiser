@@ -52,7 +52,7 @@ public class RegistrationActivity extends AppCompatActivity {
         //firebase
         mAuth = FirebaseAuth.getInstance();
         mDialog = new ProgressDialog(this);
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance().getReference("Users");
 
 
         email = findViewById(R.id.email_login);
@@ -64,7 +64,7 @@ public class RegistrationActivity extends AppCompatActivity {
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String mEmail = email.getText().toString().trim();
+                final String mEmail = email.getText().toString().trim();
                 String mPass = pass.getText().toString().trim();
 
                 if (TextUtils.isEmpty(mEmail)) {
@@ -93,7 +93,9 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
                         if (task.isSuccessful()) {
-                            mDatabase.child("Users").child("mEmail").setValue("mEmail");
+                            UserProfile.email = mEmail;
+                            UserProfile.UID = mAuth.getCurrentUser().getUid();
+                            mDatabase.child(UserProfile.UID).setValue(new UserProfile());
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
                             Toast.makeText(getApplicationContext(), "Finally Your registered to Database!!!", Toast.LENGTH_LONG);

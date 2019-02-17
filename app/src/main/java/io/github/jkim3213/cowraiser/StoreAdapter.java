@@ -15,11 +15,15 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.List;
 
 public class StoreAdapter extends RecyclerView.Adapter {
 
     List<StoreItem> storeItemList;
+    private DatabaseReference mDatabase;
 
     public StoreAdapter(List<StoreItem> storeItemList) {
         this.storeItemList = storeItemList;
@@ -29,6 +33,7 @@ public class StoreAdapter extends RecyclerView.Adapter {
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.store_item, parent, false);
         RecyclerView.ViewHolder vh = new StoreItemHolder(v); // pass the view to View Holder
+        mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + UserProfile.UID);
         return vh;
     }
 
@@ -48,8 +53,12 @@ public class StoreAdapter extends RecyclerView.Adapter {
                 if(UserProfile.ecoDollars >= si.cost) {
                     UserProfile.ecoDollars -= si.cost;
                     toastMessage = "Bought " + si.name + " for " + si.cost + " ecodollars.";
-                    //TODO when we have a server, we request BUY
-                    UserProfile.inventory.put(si.name, UserProfile.inventory.get(si.name) + 1);
+                    Integer count = UserProfile.inventory.get(si.name);
+                    if(count == null) {
+                        count = 0;
+                    }
+                    UserProfile.inventory.put(si.name, count + 1);
+                    mDatabase.setValue(new UserProfile());
                     TextView tv = storeLayout.findViewById(R.id.ecoDollars);
                     System.out.println(tv);
                     String updatedEco = context.getString(R.string.num_ecodollars, UserProfile.ecoDollars);

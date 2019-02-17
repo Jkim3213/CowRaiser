@@ -61,7 +61,7 @@ public class SettingsFragment extends Fragment {
                 if (user != null) {
                     Log.d(TAG, "onAuthStateChanged: signed_in: " + user.getUid());
                 } else {
-
+                    UserProfile.resetUser();
                     Log.d(TAG, "onAuthStateChanged: signed out");
                     Toast.makeText(getActivity(),"See You next time", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getActivity(), LoginActivity.class);
