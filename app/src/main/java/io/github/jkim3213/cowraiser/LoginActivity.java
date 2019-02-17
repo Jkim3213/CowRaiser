@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String mEmail = userName.getText().toString().trim();
+                final String mEmail = userName.getText().toString().trim();
                 String mPass = password.getText().toString().trim();
 
                 if (TextUtils.isEmpty(mEmail)) {
@@ -90,13 +90,20 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
-                            mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + mAuth.getCurrentUser().getUid());
+                            UserProfile.UID = mAuth.getCurrentUser().getUid();
+                            mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + UserProfile.UID);
                             mDatabase.addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                     UserProfile post = dataSnapshot.getValue(UserProfile.class);
-                                    post.setUser();
-                                    UserProfile.UID = mAuth.getCurrentUser().getUid();
+                                    if(post != null) {
+                                        post.setUser();
+                                    } else {
+                                        UserProfile.email = mEmail;
+                                        post = new UserProfile();
+                                        mDatabase.setValue(post);
+                                    }
+
                                     Log.i("LOGIN", post.toString());
                                 }
 
