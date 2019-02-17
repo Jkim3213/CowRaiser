@@ -12,6 +12,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" />
+        <activity android:name=".Challenge"></activity>
         <activity android:name=".VegetarianChallenge" />
         <activity android:name=".LightChallenge" />
         <activity android:name=".AltTransportChallenge" />
@@ -29,6 +30,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegistrationActivity"></activity>
+        <activity android:name=".PWResetActivity"></activity>
+        <activity android:name=".ChallengesPageActivity"></activity>
     </application>
 
 </manifest>

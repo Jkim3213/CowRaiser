@@ -26,6 +26,7 @@
     <string name="num_carbon_lbs">%d</string>
     <string name="carbon_lbs">Pounds of Carbon Saved</string>
     <string name="store">Store</string>
+    <string name="challengespage">Challenges</string>
     <string name="num_ecodollars">%d ecodollars</string>
     <string name="buy">Buy</string>
     <string name="item_name" translatable="false">%s</string>
@@ -37,6 +38,7 @@
     <string name="Registration">Registration</string>
     <string name="login">Login</string>
     <string name="forgotpassword">I forgot my password</string>
+    <string name="pwResetButton">Send a password reset email</string>
     <string name="title_Profile">Profile</string>
     <string name="title_Settings">Settings</string>
     <string name="title_CO2">CO2</string>

@@ -64,4 +64,13 @@
         android:text="Don't have an account? Sign Up here"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
+    <TextView
+        android:id="@+id/pwResetLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/forgotpassword"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
 </LinearLayout>
