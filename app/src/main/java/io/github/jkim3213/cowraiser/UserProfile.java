@@ -1,5 +1,7 @@
 package io.github.jkim3213.cowraiser;
 
+
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class UserProfile {
@@ -7,24 +9,32 @@ public class UserProfile {
     static int ecoDollars = 0;
     static int carbonLbs = 0;
     static HashMap<String, Integer> inventory = new HashMap<>();
+    static ArrayList<JournalEntry> journalEntryList = new ArrayList<>();
     static String email = "";
 
     public int ecoD;
     public int carbonL;
     public HashMap<String, Integer> inv;
+    public ArrayList<JournalEntry> entryList;
     public String userEmail;
 
     public UserProfile() {
         ecoD = ecoDollars;
         carbonL = carbonLbs;
         inv = inventory;
+        entryList = journalEntryList;
         userEmail = email;
+    }
+
+    public static ArrayList<JournalEntry> getJournalEntryList() {
+        return journalEntryList;
     }
 
     void setUser() {
         ecoDollars = ecoD;
         carbonLbs = carbonL;
         inventory = inv;
+        journalEntryList = entryList;
         email = userEmail;
     }
 
@@ -33,7 +43,12 @@ public class UserProfile {
         ecoDollars = 0;
         carbonLbs = 0;
         inventory = new HashMap<>();
+        journalEntryList = new ArrayList<>();
         email = "";
+    }
+
+    void removeJournalEntry(int i) {
+        journalEntryList.remove(i);
     }
 
     public String toString() {
