@@ -61,11 +61,6 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.navigation_shop:
-
-                //fragment = new DashboardFragment();
-
-//                toStoreAct = new Intent(getApplicationContext(), StoreFragment.class);
-//                startActivity(toStoreAct);
                 fragment = new StoreFragment();
                 break;
 
