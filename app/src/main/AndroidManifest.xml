@@ -31,7 +31,6 @@
         </activity>
         <activity android:name=".RegistrationActivity"></activity>
         <activity android:name=".PWResetActivity"></activity>
-        <activity android:name=".ChallengesPageActivity"></activity>
     </application>
 
 </manifest>

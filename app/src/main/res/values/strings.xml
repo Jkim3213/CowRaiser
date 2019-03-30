@@ -46,5 +46,6 @@
     <string name="AppLogo">AppLogo</string>
     <string name="registerProfilePhoto">registerProfilePhoto</string>
     <string name="Register">Register</string>
+    <string name="title_Challenge">Challenges</string>
 
 </resources>

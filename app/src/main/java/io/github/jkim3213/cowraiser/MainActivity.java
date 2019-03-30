@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity
         btnChallengesPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), ChallengesPageActivity.class));
+                loadFragment(new ChallengesPageFragment());
             }
         });
     }

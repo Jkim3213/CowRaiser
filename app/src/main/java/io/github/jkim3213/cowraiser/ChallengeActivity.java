@@ -38,7 +38,7 @@ public abstract class ChallengeActivity extends AppCompatActivity {
                 UserProfile.carbonLbs += carbonLbs;
                 UserProfile.ecoDollars += ecoDollars;
                 Calendar calendar = Calendar.getInstance();
-                SimpleDateFormat calFormat = new SimpleDateFormat("MM, dd, yyyy, HH:mm:ss");
+                SimpleDateFormat calFormat = new SimpleDateFormat("MM/dd/yyyy, HH:mm:ss");
                 String strTime = calFormat.format(calendar.getTime());
                 JournalEntry entry = new JournalEntry(challengeTitle.getText().toString(),strTime,entryEditText.getText().toString(),ecoDollars,carbonLbs);
                 UserProfile.journalEntryList.add(entry);
