@@ -9,6 +9,7 @@ public class UserProfile {
     static HashMap<String, Integer> inventory = new HashMap<>();
     static String email = "";
 
+
     public int ecoD;
     public int carbonL;
     public HashMap<String, Integer> inv;

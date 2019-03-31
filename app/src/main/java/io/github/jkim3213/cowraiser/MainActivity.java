@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         Fragment fragment = null;
         Intent toStoreAct;
+        Intent toVisualization;
         switch (menuItem.getItemId()) {
             case R.id.navigation_home:
                 fragment = new HomeFragment();
@@ -70,7 +71,12 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.navigation_carbonVisualizations:
-                fragment = new CarbonVisualizationFragment();
+
+                //toVisualization = new Intent(getApplicationContext(), StoreFragment.class);
+//              startActivity(toVisualization);
+
+                toVisualization = new Intent(getApplicationContext(), visualization.class);
+                startActivity(toVisualization);
                 break;
 
             case R.id.navigation_profile:

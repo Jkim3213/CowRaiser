@@ -15,8 +15,8 @@ public abstract class ChallengeActivity extends AppCompatActivity {
     protected TextView challengeTitle;
     protected TextView challengeDesc;
     protected Button logButton;
-    protected int ecoDollars = 0;
-    protected int carbonLbs = 0;
+    public int ecoDollars = 0;
+    int carbonLbs = 0;
     private DatabaseReference mDatabase;
 
     @Override
