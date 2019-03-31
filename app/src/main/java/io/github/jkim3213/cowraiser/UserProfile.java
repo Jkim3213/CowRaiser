@@ -12,6 +12,7 @@ public class UserProfile {
     static ArrayList<JournalEntry> journalEntryList = new ArrayList<>();
     static String email = "";
 
+
     public int ecoD;
     public int carbonL;
     public HashMap<String, Integer> inv;
