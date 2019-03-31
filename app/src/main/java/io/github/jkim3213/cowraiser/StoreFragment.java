@@ -24,8 +24,8 @@ import java.util.Set;
 
 public class StoreFragment extends Fragment {
 
-    private static final StoreItem[] composts = {new StoreItem("Compost Bin", R.drawable.assets_cow_raiser0004, 20, 1, "c"),
-            new StoreItem("Big Compost Bin", R.drawable.assets_cow_raiser0004, 200, 2, "c"),
+    private static final StoreItem[] composts = {new StoreItem("Compost Bin", R.drawable.small_compost, 20, 1, "c"),
+            new StoreItem("Big Compost Bin", R.drawable.big_compost, 200, 2, "c"),
             new StoreItem("XXL Compost Bin", R.drawable.assets_cow_raiser0004, 2000, 3, "c")};
     static final StoreItem[][] storeItems = {composts};
 
@@ -47,23 +47,6 @@ public class StoreFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         rv.setLayoutManager(linearLayoutManager);
         refreshStore();
-//        //populate
-
-//        for(StoreItem[] i : storeItems) {
-//            char type = i[0].type;
-//            Integer level = UserProfile.curLevels.get(type);
-//            if(level == null || level == 0) {
-//                items.add(i[0]);
-//                continue;
-//            }
-//            if(level >= i.length) {
-//                continue;
-//            }
-//            items.add(i[level + 1]);
-//
-//        }
-//        StoreAdapter storeAdapter = new StoreAdapter(items);
-//        rv.setAdapter(storeAdapter);
     }
 
     public static void refreshStore() {

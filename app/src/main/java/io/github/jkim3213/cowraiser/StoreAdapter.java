@@ -41,7 +41,6 @@ public class StoreAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         final StoreItem si = storeItemList.get(position);
         final StoreItemHolder storeItemHolder = (StoreItemHolder) holder;
-        //TODO if does not pass, set Gone
         storeItemHolder.itemName.setText(si.name);
         storeItemHolder.itemImage.setImageResource(si.imageId);
         //set on click for button
@@ -54,14 +53,12 @@ public class StoreAdapter extends RecyclerView.Adapter {
                 if(UserProfile.ecoDollars >= si.cost) {
                     UserProfile.ecoDollars -= si.cost;
                     toastMessage = "Bought " + si.name + " for " + si.cost + " ecodollars.";
-                    Integer level = UserProfile.curLevels.get(si.type);
                     UserProfile.curLevels.put(si.type, si.level);
                     mDatabase.setValue(new UserProfile());
                     TextView tv = storeLayout.findViewById(R.id.ecoDollars);
                     System.out.println(tv);
                     String updatedEco = context.getString(R.string.num_ecodollars, UserProfile.ecoDollars);
                     tv.setText(updatedEco);
-                    storeItemHolder.buyButton.setEnabled(false);
                     StoreFragment.refreshStore();
 
                 } else {
