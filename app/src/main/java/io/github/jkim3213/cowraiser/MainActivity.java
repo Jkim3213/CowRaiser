@@ -37,6 +37,11 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        //do nothing on back press.
+    }
+
     //load frag
     private boolean loadFragment(Fragment fragment) {
         //switching fragment
