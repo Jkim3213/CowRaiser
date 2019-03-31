@@ -30,9 +30,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegistrationActivity" />
-        <activity android:name=".PWResetActivity" />
-        <activity android:name=".ChallengesPageActivity" />
+        <activity android:name=".RegistrationActivity"></activity>
+        <activity android:name=".PWResetActivity"></activity>
     </application>
 
 </manifest>

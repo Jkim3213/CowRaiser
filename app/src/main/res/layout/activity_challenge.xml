@@ -22,7 +22,7 @@
         android:layout_width="252dp"
         android:layout_height="109dp"
         android:text="@string/challenge_desc"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
+        app:layout_constraintBottom_toTopOf="@+id/entryEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,10 +37,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/entryEditText" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/entryEditText"
         android:layout_width="250dp"
         android:layout_height="300dp"
         android:background="@drawable/textboxbackground"
