@@ -40,7 +40,8 @@ public class StoreAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         final StoreItem si = storeItemList.get(position);
-        StoreItemHolder storeItemHolder = (StoreItemHolder) holder;
+        final StoreItemHolder storeItemHolder = (StoreItemHolder) holder;
+        //TODO if does not pass, set Gone
         storeItemHolder.itemName.setText(si.name);
         storeItemHolder.itemImage.setImageResource(si.imageId);
         //set on click for button
@@ -53,16 +54,16 @@ public class StoreAdapter extends RecyclerView.Adapter {
                 if(UserProfile.ecoDollars >= si.cost) {
                     UserProfile.ecoDollars -= si.cost;
                     toastMessage = "Bought " + si.name + " for " + si.cost + " ecodollars.";
-                    Integer count = UserProfile.inventory.get(si.name);
-                    if(count == null) {
-                        count = 0;
-                    }
-                    UserProfile.inventory.put(si.name, count + 1);
+                    Integer level = UserProfile.curLevels.get(si.type);
+                    UserProfile.curLevels.put(si.type, si.level);
                     mDatabase.setValue(new UserProfile());
                     TextView tv = storeLayout.findViewById(R.id.ecoDollars);
                     System.out.println(tv);
                     String updatedEco = context.getString(R.string.num_ecodollars, UserProfile.ecoDollars);
                     tv.setText(updatedEco);
+                    storeItemHolder.buyButton.setEnabled(false);
+                    StoreFragment.refreshStore();
+
                 } else {
                     toastMessage = "Not enough ecodollars. Need " + (si.cost - UserProfile.ecoDollars) + " more ecodollars.";
                 }
@@ -77,19 +78,23 @@ public class StoreAdapter extends RecyclerView.Adapter {
         return storeItemList.size();
     }
 
+
+
     public class StoreItemHolder extends RecyclerView.ViewHolder {
         // init the item view's
         TextView itemName;
-        ImageView itemImage;
+        ImageView itemImage;//have the cardholder be pressable to open a description
         Button buyButton;
 
         public StoreItemHolder(View itemView) {
             super(itemView);
-
             itemName = itemView.findViewById(R.id.itemName);
-            itemImage = itemView.findViewById(R.id.itemIcon);
-            buyButton = itemView.findViewById(R.id.buyButton);
 
+            itemImage = itemView.findViewById(R.id.itemIcon);
+            itemImage.getLayoutParams().height = 200;
+            itemImage.getLayoutParams().width = 200;
+            buyButton = itemView.findViewById(R.id.buyButton);
+            buyButton.setBackgroundColor(Color.argb(255, 164,198,57));
         }
     }
 }
