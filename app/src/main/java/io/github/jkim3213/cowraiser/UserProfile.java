@@ -13,6 +13,7 @@ public class UserProfile {
     static String email = "";
     static HashMap<String, Integer> curLevels = new HashMap<>();
 
+
     public int ecoD;
     public int carbonL;
     //public HashMap<String, Integer> inv;

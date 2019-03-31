@@ -32,7 +32,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.6'
     implementation 'com.google.firebase:firebase-auth:16.1.0'
     implementation 'com.google.firebase:firebase-database:16.0.6'
+
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.+'
+    implementation 'com.jjoe64:graphview:4.2.2'
 }
 
 configurations.all {
