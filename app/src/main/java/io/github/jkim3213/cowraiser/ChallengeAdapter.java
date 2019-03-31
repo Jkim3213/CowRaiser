@@ -1,5 +1,6 @@
 package io.github.jkim3213.cowraiser;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,9 +11,9 @@ import java.util.ArrayList;
 
 public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeHolder> {
 
-    private Context context;
+    private Activity context;
     private ArrayList<Challenge> challenges;
-    public ChallengeAdapter(Context context, ArrayList<Challenge> challenges) {
+    public ChallengeAdapter(Activity context, ArrayList<Challenge> challenges) {
         this.context = context;
         this.challenges = challenges;
     }
@@ -25,7 +26,7 @@ public class ChallengeAdapter extends RecyclerView.Adapter<ChallengeHolder> {
     @Override
     public ChallengeHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_row,parent, false);
-        return new ChallengeHolder(view);
+        return new ChallengeHolder(view,context);
     }
 
     @Override

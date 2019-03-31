@@ -1,5 +1,6 @@
 package io.github.jkim3213.cowraiser;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -9,13 +10,13 @@ import android.widget.TextView;
 public class ChallengeHolder extends RecyclerView.ViewHolder {
 
     private TextView txtTitle, txtDesc;
-    private Context context;
+    private Activity context;
 
-    public ChallengeHolder(View itemView) {
+    public ChallengeHolder(View itemView, Activity context) {
         super(itemView);
         txtTitle = itemView.findViewById(R.id.itemTitle);
         txtDesc = itemView.findViewById(R.id.itemDesc);
-        context = itemView.getContext();
+        this.context = context;
     }
 
     public void setDetails(final Challenge challenge) {
