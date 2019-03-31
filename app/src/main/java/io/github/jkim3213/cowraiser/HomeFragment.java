@@ -26,6 +26,8 @@ public class HomeFragment extends Fragment {
 
     private View view;
 
+    Button btnChallengesPage;
+    private static boolean firstOpen = true;
 
     @Nullable
     @Override
@@ -38,7 +40,20 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         this.view = view;
 
-        Toast.makeText(getContext(), "Welcome to Home.", Toast.LENGTH_SHORT).show();
+
+        btnChallengesPage = view.findViewById(R.id.challengespagebutton);
+        btnChallengesPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadFragment(new ChallengesPageFragment());
+            }
+        });
+
+        if(firstOpen) {
+            Toast.makeText(getContext(), "Welcome to Home.", Toast.LENGTH_SHORT).show();
+            firstOpen = false;
+        }
+
 
     }
 
@@ -46,6 +61,7 @@ public class HomeFragment extends Fragment {
     public void onResume() {
         super.onResume();
     }
+
 
     //load frag
     private boolean loadFragment(Fragment fragment) {
