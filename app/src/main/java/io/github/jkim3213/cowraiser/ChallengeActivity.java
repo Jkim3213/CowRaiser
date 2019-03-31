@@ -2,6 +2,7 @@ package io.github.jkim3213.cowraiser;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,12 +21,15 @@ public abstract class ChallengeActivity extends AppCompatActivity {
     protected TextView challengeDesc;
     protected EditText entryEditText;
     protected Button logButton;
-    public int ecoDollars = 0;
+    public int baseEcoDollars = 0;
     int carbonLbs = 0;
     private DatabaseReference mDatabase;
+    private int compostMulti = (UserProfile.curLevels.get("c") == null) ? 1 : UserProfile.curLevels.get("c") + 1;
+    private int calculatedEco = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_challenge);
         mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + UserProfile.UID);
@@ -35,15 +39,18 @@ public abstract class ChallengeActivity extends AppCompatActivity {
         logButton = findViewById(R.id.logButton);
         logButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                Log.d("CHALLENGE", "compostMulti " + compostMulti);
+                Log.d("CHALLENGE", "baseEcoDollars " + baseEcoDollars);
+                calculatedEco = baseEcoDollars * compostMulti; //The formula
                 UserProfile.carbonLbs += carbonLbs;
-                UserProfile.ecoDollars += ecoDollars;
+                UserProfile.ecoDollars += calculatedEco;
                 Calendar calendar = Calendar.getInstance();
                 SimpleDateFormat calFormat = new SimpleDateFormat("MM/dd/yyyy, HH:mm:ss");
                 String strTime = calFormat.format(calendar.getTime());
-                JournalEntry entry = new JournalEntry(challengeTitle.getText().toString(),strTime,entryEditText.getText().toString(),ecoDollars,carbonLbs);
+                JournalEntry entry = new JournalEntry(challengeTitle.getText().toString(),strTime,entryEditText.getText().toString(), calculatedEco,carbonLbs);
                 UserProfile.journalEntryList.add(entry);
                 mDatabase.setValue(new UserProfile());
-                String complete = getString(R.string.challenge_complete_toast, ecoDollars);
+                String complete = getString(R.string.challenge_complete_toast, calculatedEco);
                 Toast.makeText(getApplicationContext(), complete, Toast.LENGTH_LONG).show();
                 finish();
             }

@@ -11,6 +11,6 @@ public class VegetarianChallenge extends ChallengeActivity {
         challengeTitle.setText(R.string.vegetarian_title);
         challengeDesc.setText(R.string.vegetarian_desc);
         carbonLbs = 6;
-        ecoDollars = 12;
+        baseEcoDollars = 12;
     }
 }

@@ -11,6 +11,6 @@ public class PublTransportChallenge extends ChallengeActivity {
         challengeTitle.setText(R.string.publtransport_title);
         challengeDesc.setText(R.string.publtransport_desc);
         carbonLbs = 6;
-        ecoDollars = 12;
+        baseEcoDollars = 12;
     }
 }

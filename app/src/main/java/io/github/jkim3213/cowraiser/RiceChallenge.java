@@ -11,6 +11,6 @@ public class RiceChallenge extends ChallengeActivity {
         challengeTitle.setText(R.string.rice_title);
         challengeDesc.setText(R.string.rice_desc);
         carbonLbs = 6;
-        ecoDollars = 99;
+        baseEcoDollars = 99;
     }
 }

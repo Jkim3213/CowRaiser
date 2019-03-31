@@ -3,13 +3,13 @@ package io.github.jkim3213.cowraiser;
 public class Challenge {
     private String name;
     private String description;
-    private int carbonblbs;
+    private int carbonlbs;
     private int ecodollars;
 
     public Challenge(String name, String description, int carbonlbs, int ecodollars) {
         this.name = name;
         this.description = description;
-        this.carbonblbs = carbonlbs;
+        this.carbonlbs = carbonlbs;
         this.ecodollars = ecodollars;
     }
 
@@ -21,8 +21,8 @@ public class Challenge {
         this.description = description;
     }
 
-    public void setCarbonblbs(int carbonblbs) {
-        this.carbonblbs = carbonblbs;
+    public void setCarbonlbs(int carbonlbs) {
+        this.carbonlbs = carbonlbs;
     }
 
     public void setEcodollars(int ecodollars) {
@@ -37,8 +37,8 @@ public class Challenge {
         return this.description;
     }
 
-    public int getCarbonblbs() {
-        return this.carbonblbs;
+    public int getCarbonlbs() {
+        return this.carbonlbs;
     }
 
     public int getEcodollars() {

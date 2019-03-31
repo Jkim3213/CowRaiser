@@ -1,8 +1,6 @@
 package io.github.jkim3213.cowraiser;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
 
 public class AltTransportChallenge extends ChallengeActivity {
 
@@ -14,6 +12,6 @@ public class AltTransportChallenge extends ChallengeActivity {
         challengeTitle.setText(R.string.altertransport_title);
         challengeDesc.setText(R.string.altertransport_desc);
         carbonLbs = 6;
-        ecoDollars = 12;
+        baseEcoDollars = 12;
     }
 }

@@ -12,6 +12,6 @@ public class ShowerChallenge extends ChallengeActivity {
         challengeTitle.setText(R.string.shower_title);
         challengeDesc.setText(R.string.shower_desc);
         carbonLbs = 6;
-        ecoDollars = 12;
+        baseEcoDollars = 12;
     }
 }
