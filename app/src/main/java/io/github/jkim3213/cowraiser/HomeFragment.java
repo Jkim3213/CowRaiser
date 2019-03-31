@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -33,7 +34,9 @@ public class HomeFragment extends Fragment {
 
     private int xDelta;
     private int yDelta;
-    //
+    //'
+
+    Button btnChallengesPage;
 
     @Nullable
     @Override
@@ -45,6 +48,14 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         this.view = view;
+
+        btnChallengesPage = view.findViewById(R.id.challengespagebutton);
+        btnChallengesPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadFragment(new ChallengesPageFragment());
+            }
+        });
 
 
         ArrayList<String> arrayList = new ArrayList<String>();
@@ -163,6 +174,19 @@ public class HomeFragment extends Fragment {
                 return true;
             }
         };
+    }
+
+    //load frag
+    private boolean loadFragment(Fragment fragment) {
+        //switching fragment
+        if (fragment != null) {
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
     }
 }
 

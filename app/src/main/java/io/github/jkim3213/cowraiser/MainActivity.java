@@ -13,7 +13,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity
         implements BottomNavigationView.OnNavigationItemSelectedListener{
 
-    Button btnChallengesPage;
+
 
 
     @Override
@@ -22,19 +22,14 @@ public class MainActivity extends AppCompatActivity
 
         setContentView(R.layout.activity_main);
 
-        btnChallengesPage = findViewById(R.id.challengespagebutton);
+
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
 
         loadFragment(new HomeFragment());
 
-        btnChallengesPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadFragment(new ChallengesPageFragment());
-            }
-        });
+
     }
 
     //load frag
