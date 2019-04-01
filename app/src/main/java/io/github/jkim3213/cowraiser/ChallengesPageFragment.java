@@ -21,6 +21,7 @@ public class ChallengesPageFragment extends Fragment {
     private View view;
     private Context context;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -46,32 +47,27 @@ public class ChallengesPageFragment extends Fragment {
     }
 
     private void createListData() {
-        Challenge challenge = new Challenge(getString(R.string.vegetarian_title), getString(R.string.vegetarian_desc), 6, 12 );
+        Challenge challenge = new Challenge(getString(R.string.vegetarian_title), getString(R.string.vegetarian_desc), 6, 12, R.drawable.releaf_icon_1 );
         challengeArrayList.add(challenge);
 
         adapter.notifyDataSetChanged();
 
-        challenge = new Challenge(getString(R.string.light_title), getString(R.string.light_desc), 6, 12 );
+        challenge = new Challenge(getString(R.string.light_title), getString(R.string.light_desc), 6, 12, R.drawable.releaf_icon_2);
         challengeArrayList.add(challenge);
 
         adapter.notifyDataSetChanged();
 
-        challenge = new Challenge(getString(R.string.altertransport_title), getString(R.string.altertransport_desc), 6, 12 );
+        challenge = new Challenge(getString(R.string.altertransport_title), getString(R.string.altertransport_desc), 6, 12, R.drawable.releaf_icon_3);
         challengeArrayList.add(challenge);
 
         adapter.notifyDataSetChanged();
 
-        challenge = new Challenge(getString(R.string.shower_title), getString(R.string.shower_desc), 6, 12 );
+        challenge = new Challenge(getString(R.string.shower_title), getString(R.string.shower_desc), 6, 12, R.drawable.releaf_icon_0);
         challengeArrayList.add(challenge);
 
         adapter.notifyDataSetChanged();
 
-        challenge = new Challenge(getString(R.string.rice_title), getString(R.string.rice_desc), 6, 12 );
-        challengeArrayList.add(challenge);
-
-        adapter.notifyDataSetChanged();
-
-        challenge = new Challenge(getString(R.string.publtransport_title), getString(R.string.publtransport_desc), 6, 12 );
+        challenge = new Challenge(getString(R.string.publtransport_title), getString(R.string.publtransport_desc), 6, 12, R.drawable.releaf_icon_4);
         challengeArrayList.add(challenge);
 
         adapter.notifyDataSetChanged();
