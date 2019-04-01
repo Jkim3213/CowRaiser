@@ -13,7 +13,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/entryImageView"
             android:layout_width="92dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/assets_cow_raiser0004" />
