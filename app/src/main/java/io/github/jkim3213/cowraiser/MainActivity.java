@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity
                 //toVisualization = new Intent(getApplicationContext(), StoreFragment.class);
 //              startActivity(toVisualization);
 
-                toVisualization = new Intent(getApplicationContext(), visualization.class);
+                toVisualization = new Intent(getApplicationContext(), Graph.class);
                 startActivity(toVisualization);
                 break;
 
