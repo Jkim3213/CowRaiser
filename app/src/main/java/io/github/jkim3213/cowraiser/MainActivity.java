@@ -67,11 +67,7 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.navigation_carbonVisualizations:
 
-                //toVisualization = new Intent(getApplicationContext(), StoreFragment.class);
-//              startActivity(toVisualization);
-
-                toVisualization = new Intent(getApplicationContext(), Graph.class);
-                startActivity(toVisualization);
+                fragment = new StatisticsFragment();
                 break;
 
             case R.id.navigation_profile:

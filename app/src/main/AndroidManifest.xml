@@ -21,7 +21,6 @@
         <activity android:name=".RiceChallenge" />
         <activity android:name=".PublTransportChallenge" />
         <activity android:name=".StoreFragment" />
-            <activity android:name=".Graph"/>
         <activity
             android:name=".LoginActivity"
             android:theme="@style/LoginTheme">

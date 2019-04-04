@@ -55,7 +55,7 @@
         app:srcCompat="@drawable/small_compost" />
 
     <Button
-        android:id="@+id/challengespagebutton"
+        android:id="@+id/challengePageButton"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:clickable="true"
