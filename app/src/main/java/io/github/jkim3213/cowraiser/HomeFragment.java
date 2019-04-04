@@ -11,6 +11,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import pl.droidsonroids.gif.GifImageView;
 
 public class HomeFragment extends Fragment {
@@ -20,6 +26,7 @@ public class HomeFragment extends Fragment {
     private GifImageView solarGif;
     private GifImageView gardenGif;
     private GifImageView dryingGif;
+    private DatabaseReference mDatabase;
 
     @Nullable
     @Override
@@ -32,16 +39,30 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         this.view = view;
         compostGif = view.findViewById(R.id.compost);
-        //TODO add other item elements
-        //TODO BUG is happening where event listener is slower than make page. So profile starts at null on startup.
-        //TODO I think just use the event listener to call setupgrades somehow
-        //setUpgrades();
+
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        setUpgrades();
+        mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + UserProfile.UID);
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                UserProfile post = dataSnapshot.getValue(UserProfile.class);
+                if(post != null) {
+                    post.setUser();
+                    setUpgrades();
+                }
+
+                Log.i("HavenLoad", post.toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
     }
 
     private void setUpgrades() {
