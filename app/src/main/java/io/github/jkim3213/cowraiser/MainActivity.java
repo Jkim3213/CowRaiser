@@ -74,7 +74,9 @@ public class MainActivity extends AppCompatActivity
                 fragment = new ProfileFragment();
                 break;
             case R.id.navigation_settings:
-                fragment = new SettingsFragment();
+                //fragment = new SettingsFragment();
+                fragment = new ChallengesPageFragment();
+                break;
         }
 
         return loadFragment(fragment);

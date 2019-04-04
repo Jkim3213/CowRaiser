@@ -21,7 +21,7 @@ public class StatisticsFragment extends Fragment {
 
 
     private float rainFall[] = {98.2f, 123.4f, 161.1f, 24.2f, 52f, 13.8f, 20};
-    private String dayName[] = {"Mon", "Tues", "Wend", "Thurs", "Fri", "Sat", "Sun"};
+    private String dayName[] = {"Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"};
 
     @Nullable
     @Override

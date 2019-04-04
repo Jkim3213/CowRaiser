@@ -7,19 +7,8 @@
     android:layout_height="match_parent"
     tools:layout_editor_absoluteY="81dp">
 
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:contentDescription="@string/haven_background"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:srcCompat="@drawable/skyline_blue" />
-
     <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/gifImageView"
+        android:id="@+id/Background"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/skyline"
@@ -32,39 +21,31 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/roofTop"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/gifImageView"
+        android:contentDescription="@string/roofTopDesc"
+        app:layout_constraintBottom_toBottomOf="@+id/Background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/roof_1" />
 
-    <ImageView
-        android:id="@+id/imageView4"
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/compost"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="384dp"
-        android:layout_marginTop="328dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/breakdancing_together"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView11"
-        app:srcCompat="@drawable/small_compost" />
-
-    <Button
-        android:id="@+id/challengePageButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:clickable="true"
-        android:text="challengespage"
-        android:background="@drawable/circle"
-        android:paddingTop="20dp"
-        android:textColor="#fff"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </android.support.constraint.ConstraintLayout>

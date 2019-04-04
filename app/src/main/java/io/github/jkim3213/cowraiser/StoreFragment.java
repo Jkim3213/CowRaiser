@@ -24,10 +24,19 @@ import java.util.Set;
 
 public class StoreFragment extends Fragment {
 
-    private static final StoreItem[] composts = {new StoreItem("Compost Bin", R.drawable.small_compost, 20, 1, "c"),
+    static final StoreItem[] composts = {new StoreItem("Compost Bin", R.drawable.small_compost, 20, 1, "c"),
             new StoreItem("Big Compost Bin", R.drawable.big_compost, 200, 2, "c"),
             new StoreItem("XXL Compost Bin", R.drawable.assets_cow_raiser0004, 2000, 3, "c")};
-    static final StoreItem[][] storeItems = {composts};
+    static final StoreItem[] solarPanels = {new StoreItem("Basic Solar Panel", R.drawable.small_compost, 20, 1, "s"),
+            new StoreItem("High Efficiency Solar Panel", R.drawable.big_compost, 200, 2, "s"),
+            new StoreItem("Ultra High Efficiency Solar Gate", R.drawable.assets_cow_raiser0004, 2000, 3, "s")};
+    static final StoreItem[] vegetableGardens = {new StoreItem("Small Potato Garden", R.drawable.small_compost, 20, 1, "g"),
+            new StoreItem("3-Layered Potatoes and Vines Garden", R.drawable.big_compost, 200, 2, "g"),
+            new StoreItem("Variety-Pack Greenhouse 3000", R.drawable.assets_cow_raiser0004, 2000, 3, "g")};
+    static final StoreItem[] dryingRack = {new StoreItem("Your mom's drying rack", R.drawable.small_compost, 20, 1, "d"),
+            new StoreItem("Ain't your momma's drying rack", R.drawable.big_compost, 200, 2, "d"),
+            new StoreItem("You wish it was your momma's drying rack", R.drawable.assets_cow_raiser0004, 2000, 3, "d")};
+    static final StoreItem[][] storeItems = {composts, solarPanels, vegetableGardens, dryingRack};
 
     static List<StoreItem> items = new ArrayList<>();
     static RecyclerView rv;

@@ -48,5 +48,6 @@
     <string name="Register">Register</string>
     <string name="title_Challenge">Challenges</string>
     <string name="haven_background">haven background</string>
+    <string name="roofTopDesc">Roof Top Image</string>
 
 </resources>

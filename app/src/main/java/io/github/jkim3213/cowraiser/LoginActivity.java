@@ -103,6 +103,7 @@ public class LoginActivity extends AppCompatActivity {
                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                     UserProfile post = dataSnapshot.getValue(UserProfile.class);
                                     if(post != null) {
+                                        Log.d("HAVEN", "LOGIN");
                                         post.setUser();
                                     } else {
                                         UserProfile.email = mEmail;
