@@ -39,6 +39,7 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         this.view = view;
         compostGif = view.findViewById(R.id.compost);
+        //TODO add other views for the other structures.
 
     }
 
