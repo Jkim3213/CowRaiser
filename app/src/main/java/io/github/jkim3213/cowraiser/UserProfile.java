@@ -21,6 +21,8 @@ public class UserProfile {
     public String userEmail;
     public HashMap<String, Integer> levels;
 
+
+
     public UserProfile() {
         ecoD = ecoDollars;
         carbonL = carbonLbs;
@@ -72,5 +74,14 @@ public class UserProfile {
         sb.append('\n');
 
         return sb.toString();
+    }
+
+    public void setCarbonLbs(int carbonL){
+        this.carbonL = carbonL;
+    }
+
+    public int getCarbonLbs(){
+
+        return carbonL;
     }
 }
