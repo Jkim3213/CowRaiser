@@ -17,8 +17,8 @@
         android:icon="@drawable/releaf_nav_icons0005"
         android:title="@string/title_Profile" />
     <item
-        android:id="@+id/navigation_settings"
-        android:icon="@drawable/releaf_nav_icons0003"
-        android:title="@string/title_Settings" />
+        android:id="@+id/navigation_challenges"
+        android:icon="@drawable/releaf_nav_icons0006"
+        android:title="@string/title_Challenge" />
 
 </menu>

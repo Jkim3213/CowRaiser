@@ -24,19 +24,17 @@ import java.util.Set;
 
 public class StoreFragment extends Fragment {
 
-    static final StoreItem[] composts = {new StoreItem("Compost Bin", R.drawable.small_compost, 20, 1, "c"),
-            new StoreItem("Big Compost Bin", R.drawable.big_compost, 200, 2, "c"),
-            new StoreItem("XXL Compost Bin", R.drawable.assets_cow_raiser0004, 2000, 3, "c")};
-    static final StoreItem[] solarPanels = {new StoreItem("Basic Solar Panel", R.drawable.small_compost, 20, 1, "s"),
-            new StoreItem("High Efficiency Solar Panel", R.drawable.big_compost, 200, 2, "s"),
-            new StoreItem("Ultra High Efficiency Solar Gate", R.drawable.assets_cow_raiser0004, 2000, 3, "s")};
-    static final StoreItem[] vegetableGardens = {new StoreItem("Small Potato Garden", R.drawable.small_compost, 20, 1, "g"),
-            new StoreItem("3-Layered Potatoes and Vines Garden", R.drawable.big_compost, 200, 2, "g"),
-            new StoreItem("Variety-Pack Greenhouse 3000", R.drawable.assets_cow_raiser0004, 2000, 3, "g")};
-    static final StoreItem[] dryingRack = {new StoreItem("Your mom's drying rack", R.drawable.small_compost, 20, 1, "d"),
-            new StoreItem("Ain't your momma's drying rack", R.drawable.big_compost, 200, 2, "d"),
-            new StoreItem("You wish it was your momma's drying rack", R.drawable.assets_cow_raiser0004, 2000, 3, "d")};
-    static final StoreItem[][] storeItems = {composts, solarPanels, vegetableGardens, dryingRack};
+    static final StoreItem[] composts = {new StoreItem("Compost Bin", R.drawable.compost1, 20, 1, "c"),
+            new StoreItem("Big Compost Bin", R.drawable.compost2, 200, 2, "c")};
+    static final StoreItem[] solarPanels = {new StoreItem("Basic Solar Panel", R.drawable.solar1, 20, 1, "s"),
+            new StoreItem("High Efficiency Solar Panel", R.drawable.solar2, 200, 2, "s")};
+    static final StoreItem[] vegetableGardens = {new StoreItem("Small Potato Garden", R.drawable.potato1, 20, 1, "g"),
+            new StoreItem("BEEG Potato Garden", R.drawable.potato2, 200, 2, "g")};
+    static final StoreItem[] beeHive = {new StoreItem("Bee Hive", R.drawable.bees1, 20, 1, "b"),
+            new StoreItem("2-Story Bee Hive", R.drawable.bees2, 200, 2, "b")};
+    static final StoreItem[] fruitTree = {new StoreItem("Orange Tree", R.drawable.tree1, 20, 1, "t"),
+            new StoreItem("XXL Orange Tree", R.drawable.tree2, 200, 2, "t")};
+    static final StoreItem[][] storeItems = {composts, solarPanels, vegetableGardens, beeHive, fruitTree};
 
     static List<StoreItem> items = new ArrayList<>();
     static RecyclerView rv;

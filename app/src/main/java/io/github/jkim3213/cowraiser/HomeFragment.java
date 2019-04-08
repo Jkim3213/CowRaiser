@@ -8,8 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
+import android.widget.ImageView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -17,15 +16,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import pl.droidsonroids.gif.GifImageView;
-
 public class HomeFragment extends Fragment {
 
     private View view;
-    private GifImageView compostGif;
-    private GifImageView solarGif;
-    private GifImageView gardenGif;
-    private GifImageView dryingGif;
+    private ImageView compostImageView;
+    private ImageView solarImageView;
+    private ImageView potatoImageView;
+    private ImageView beeImageView;
+    private ImageView treeImageView;
     private DatabaseReference mDatabase;
 
     @Nullable
@@ -38,8 +36,11 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         this.view = view;
-        compostGif = view.findViewById(R.id.compost);
-        //TODO add other views for the other structures.
+        compostImageView = view.findViewById(R.id.compost);
+        solarImageView = view.findViewById(R.id.solar);
+        potatoImageView = view.findViewById(R.id.potato);
+        beeImageView = view.findViewById(R.id.bee);
+        treeImageView = view.findViewById(R.id.tree);
 
     }
 
@@ -67,20 +68,28 @@ public class HomeFragment extends Fragment {
     }
 
     private void setUpgrades() {
-        //TODO add other levels
-        Integer compostLevel = UserProfile.curLevels.get("c");
-        if(compostLevel == null || compostLevel <= 0) {
-            if(compostLevel == null) {
-                Log.d("HAVEN", "Compost Level: " + compostLevel);
-            }
-            compostGif.setImageResource(R.drawable.breakdancing_together);
+
+        setUpgradeHelper("c", compostImageView, StoreFragment.composts);
+        setUpgradeHelper("s", solarImageView, StoreFragment.solarPanels);
+        setUpgradeHelper("g", potatoImageView, StoreFragment.vegetableGardens);
+        setUpgradeHelper("b", beeImageView, StoreFragment.beeHive);
+        setUpgradeHelper("t", treeImageView, StoreFragment.fruitTree);
+
+
+
+    }
+
+    private void setUpgradeHelper(String type, ImageView imageView, StoreItem[] items) {
+        Integer level = UserProfile.curLevels.get(type);
+        if(level == null || level <= 0) {
+            Log.d("HAVEN", type + " level: " + level);
+            imageView.setImageResource(android.R.color.transparent);
         } else {
-            if(compostLevel <= StoreFragment.composts.length) {
-                compostGif.setImageResource(StoreFragment.composts[compostLevel - 1].imageId);
+            if(level <= items.length) {
+                imageView.setImageResource(items[level - 1].imageId);
             }
 
         }
-
 
     }
 }
