@@ -29,6 +29,7 @@ import static android.support.constraint.Constraints.TAG;
 //logout functionality working now
 public class SettingsFragment extends Fragment {
 
+    // NO LONGER USED. KEPT IN CASE WE DECIDE TO REDO ITS IMPLEMENTATION
     //private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private Button msignOut;
