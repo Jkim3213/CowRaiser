@@ -7,8 +7,6 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity
         implements BottomNavigationView.OnNavigationItemSelectedListener{
@@ -71,7 +69,7 @@ public class MainActivity extends AppCompatActivity
             case R.id.navigation_profile:
                 fragment = new ProfileFragment();
                 break;
-            case R.id.navigation_settings:
+            case R.id.navigation_challenges:
                 //fragment = new SettingsFragment();
                 fragment = new ChallengesPageFragment();
                 break;
