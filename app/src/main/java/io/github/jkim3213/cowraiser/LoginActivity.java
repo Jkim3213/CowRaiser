@@ -56,15 +56,12 @@ public class LoginActivity extends AppCompatActivity {
 
         signup = findViewById(R.id.signup_text);
 
-        //Find the pwReset element - Jin
         pwReset = findViewById(R.id.pwResetLink);
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 startActivity(new Intent(getApplicationContext(), RegistrationActivity.class));
-
             }
         });
 
@@ -83,9 +80,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     password.setError("Password is required.");
                     return;
-
                 }
-
 
 
                 pDialog.setMessage("Loading....");
@@ -94,7 +89,6 @@ public class LoginActivity extends AppCompatActivity {
                 mAuth.signInWithEmailAndPassword(mEmail, mPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-
                         if (task.isSuccessful()) {
                             UserProfile.UID = mAuth.getCurrentUser().getUid();
                             mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + UserProfile.UID);
@@ -110,7 +104,6 @@ public class LoginActivity extends AppCompatActivity {
                                         post = new UserProfile();
                                         mDatabase.setValue(post);
                                     }
-
                                     Log.i("LOGIN", post.toString());
                                 }
 
@@ -119,11 +112,11 @@ public class LoginActivity extends AppCompatActivity {
                                     System.out.println("The read failed: " + databaseError.getCode());
                                 }
                             });
+
                             Toast.makeText(getApplicationContext(),"Login Successful", Toast.LENGTH_LONG).show();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             pDialog.dismiss();
                         } else {
-
                             Toast.makeText(getApplicationContext(), "help is on the way", Toast.LENGTH_SHORT);
                             pDialog.dismiss();
                         }
@@ -140,9 +133,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), PWResetActivity.class));
             }
         });
-
-
-
     }
 
 }

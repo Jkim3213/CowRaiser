@@ -26,6 +26,7 @@ public class ChallengeHolder extends RecyclerView.ViewHolder {
         txtDesc.setText(challenge.getDescription());
         imgView.setImageResource(challenge.getImage());
 
+        //Once an item is clicked, start the activity
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

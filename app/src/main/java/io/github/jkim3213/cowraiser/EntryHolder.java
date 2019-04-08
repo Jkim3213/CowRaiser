@@ -23,11 +23,10 @@ public class EntryHolder extends RecyclerView.ViewHolder {
         time.setText(journalEntry.getTime());
         entryText.setText(journalEntry.getEntryText());
 
+        //If we decide each entry should be clickable
 //        itemView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//                Intent intent = null;
-//                context.startActivity(intent);
 //            }
 //        });
     }

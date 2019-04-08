@@ -32,9 +32,9 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         context = getActivity().getApplicationContext();
+
         recyclerView = view.findViewById(R.id.journalEntryRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
-
 
         entryArrayList = new ArrayList<>();
         adapter = new EntryAdapter(context, entryArrayList);

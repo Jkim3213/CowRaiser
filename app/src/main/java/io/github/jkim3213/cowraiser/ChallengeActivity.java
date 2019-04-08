@@ -32,25 +32,27 @@ public abstract class ChallengeActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_challenge);
+
+        //Get database instance
         mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + UserProfile.UID);
         challengeTitle = findViewById(R.id.challengeTitle);
         challengeDesc = findViewById(R.id.challengeDesc);
         entryEditText = (EditText) findViewById(R.id.entryEditText);
         logButton = findViewById(R.id.logButton);
+
+        //Update user data
         logButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Log.d("CHALLENGE", "compostMulti " + compostMulti);
                 Log.d("CHALLENGE", "baseEcoDollars " + baseEcoDollars);
                 calculatedEco = baseEcoDollars * compostMulti; //The formula
                 UserProfile.carbonLbs += carbonLbs;
-                //carbonlbs
-
-
-
                 UserProfile.ecoDollars += calculatedEco;
+
                 Calendar calendar = Calendar.getInstance();
                 SimpleDateFormat calFormat = new SimpleDateFormat("MM/dd/yyyy, HH:mm:ss");
                 String strTime = calFormat.format(calendar.getTime());
+
                 JournalEntry entry = new JournalEntry(challengeTitle.getText().toString(),strTime,entryEditText.getText().toString(), calculatedEco,carbonLbs);
                 UserProfile.journalEntryList.add(entry);
                 mDatabase.setValue(new UserProfile());

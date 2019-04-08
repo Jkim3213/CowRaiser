@@ -48,7 +48,6 @@ public class StatisticsFragment extends Fragment {
 
         return inflater.inflate(R.layout.fragment_statistics, null);
 
-
     }
 
     @Override
@@ -56,6 +55,7 @@ public class StatisticsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         setupPieChart(view);
 
+        //get Firebase instance and userID
         mAuth = FirebaseAuth.getInstance();
         mFirebasedatabase = mFirebasedatabase.getInstance();
         myRef = mFirebasedatabase.getReference();
@@ -75,7 +75,6 @@ public class StatisticsFragment extends Fragment {
 
             }
         });
-
     }
 
     private void showData(DataSnapshot dataSnapshot) {
@@ -101,7 +100,7 @@ public class StatisticsFragment extends Fragment {
 
         }
 
-
+        //set dataset
         PieDataSet dataSet = new PieDataSet(pieEntries, "Carbon Pounds Saved");
         dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
         PieData pieData = new PieData(dataSet);

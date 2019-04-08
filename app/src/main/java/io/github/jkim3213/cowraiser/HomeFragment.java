@@ -44,6 +44,7 @@ public class HomeFragment extends Fragment {
         setUpgrades();
     }
 
+    //manage Haven item upgrade
     private void setUpgrades() {
         //TODO add other levels
         Integer compostLevel = UserProfile.curLevels.get("c");

@@ -32,12 +32,10 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private static final String TAG = "MyActivity";
 
-
     private EditText email;
     private EditText pass;
     private Button btnReg;
     private TextView loginText;
-
 
     private FirebaseAuth mAuth;
     private ProgressDialog mDialog;
@@ -54,13 +52,12 @@ public class RegistrationActivity extends AppCompatActivity {
         mDialog = new ProgressDialog(this);
         mDatabase = FirebaseDatabase.getInstance().getReference("Users");
 
-
         email = findViewById(R.id.email_login);
         pass = findViewById(R.id.password_reg);
         btnReg = findViewById(R.id.Reg_btn);
         loginText = findViewById(R.id.login_txt);
 
-
+        //On register button click
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,21 +73,14 @@ public class RegistrationActivity extends AppCompatActivity {
                     return;
                 }
 
-                //working till this line
-                //startActivity(new Intent(getApplicationContext(), MainActivity.class));
-
-                //println("you are here");
-
-
                 mDialog.setMessage("processing.....");
                 mDialog.show();
 
-
+                //create firebase auth
                 mAuth.createUserWithEmailAndPassword(mEmail, mPass)
                         .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-
 
                         if (task.isSuccessful()) {
                             UserProfile.email = mEmail;
@@ -101,20 +91,13 @@ public class RegistrationActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Finally Your registered to Database!!!", Toast.LENGTH_LONG);
                             mDialog.dismiss();
                         } else {
-
                             Toast.makeText(getApplicationContext(), "some problem, help is on the way", Toast.LENGTH_LONG);
                             mDialog.dismiss();
-
                         }
-
                     }
                 });
-
                 Log.e(TAG, "I should be here");
-
             }
         });
     }
-
-
 }

@@ -51,6 +51,7 @@ public class SettingsFragment extends Fragment {
 
         return view;
     }
+
     private void setupFirebaseListner() {
 
         Log.d(TAG, "setupFirebaseListner: setting up the auth state listener");
@@ -71,11 +72,13 @@ public class SettingsFragment extends Fragment {
             }
         };
     }
+
     @Override
     public void onStart(){
         super.onStart();
         FirebaseAuth.getInstance().addAuthStateListener(mAuthStateListener);
     }
+
     @Override
     public void onStop(){
         super.onStop();

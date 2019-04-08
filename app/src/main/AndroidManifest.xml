@@ -18,7 +18,6 @@
         <activity android:name=".LightChallenge" />
         <activity android:name=".AltTransportChallenge" />
         <activity android:name=".ShowerChallenge" />
-        <activity android:name=".RiceChallenge" />
         <activity android:name=".PublTransportChallenge" />
         <activity android:name=".StoreFragment" />
         <activity
