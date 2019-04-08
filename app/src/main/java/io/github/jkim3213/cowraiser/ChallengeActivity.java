@@ -43,6 +43,10 @@ public abstract class ChallengeActivity extends AppCompatActivity {
                 Log.d("CHALLENGE", "baseEcoDollars " + baseEcoDollars);
                 calculatedEco = baseEcoDollars * compostMulti; //The formula
                 UserProfile.carbonLbs += carbonLbs;
+                //carbonlbs
+
+
+
                 UserProfile.ecoDollars += calculatedEco;
                 Calendar calendar = Calendar.getInstance();
                 SimpleDateFormat calFormat = new SimpleDateFormat("MM/dd/yyyy, HH:mm:ss");
