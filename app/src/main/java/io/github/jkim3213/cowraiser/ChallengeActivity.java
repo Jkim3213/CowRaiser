@@ -48,7 +48,11 @@ public abstract class ChallengeActivity extends AppCompatActivity {
                 calculatedEco = baseEcoDollars * compostMulti; //The formula
                 UserProfile.carbonLbs += carbonLbs;
                 UserProfile.ecoDollars += calculatedEco;
-
+                Integer occur = UserProfile.challengeOccurences.get(challengeTitle.getText().toString());
+                if (occur == null) {
+                    occur = 0;
+                }
+                UserProfile.challengeOccurences.put(challengeTitle.getText().toString(), occur + 1);
                 Calendar calendar = Calendar.getInstance();
                 SimpleDateFormat calFormat = new SimpleDateFormat("MM/dd/yyyy, HH:mm:ss");
                 String strTime = calFormat.format(calendar.getTime());

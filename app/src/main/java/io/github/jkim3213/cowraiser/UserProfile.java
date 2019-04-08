@@ -12,7 +12,7 @@ public class UserProfile {
     static ArrayList<JournalEntry> journalEntryList = new ArrayList<>();
     static String email = "";
     static HashMap<String, Integer> curLevels = new HashMap<>();
-
+    static HashMap<String, Integer> challengeOccurences = new HashMap<>();
 
     public int ecoD;
     public int carbonL;
@@ -20,7 +20,7 @@ public class UserProfile {
     public ArrayList<JournalEntry> entryList;
     public String userEmail;
     public HashMap<String, Integer> levels;
-
+    public HashMap<String, Integer> cOccur;
 
 
     public UserProfile() {
@@ -30,6 +30,7 @@ public class UserProfile {
         entryList = journalEntryList;
         userEmail = email;
         levels = curLevels;
+        cOccur = challengeOccurences;
     }
 
     public static ArrayList<JournalEntry> getJournalEntryList() {
@@ -42,6 +43,7 @@ public class UserProfile {
         journalEntryList = entryList;
         email = userEmail;
         curLevels = levels;
+        challengeOccurences = cOccur;
     }
 
     static void resetUser() {
@@ -51,6 +53,7 @@ public class UserProfile {
         journalEntryList = new ArrayList<>();
         email = "";
         curLevels = new HashMap<>();
+        challengeOccurences = new HashMap<>();
     }
 
     void removeJournalEntry(int i) {
@@ -71,6 +74,9 @@ public class UserProfile {
         sb.append('\n');
         sb.append("levels: ");
         sb.append(curLevels.toString());
+        sb.append('\n');
+        sb.append("occurences: ");
+        sb.append(challengeOccurences.toString());
         sb.append('\n');
 
         return sb.toString();
