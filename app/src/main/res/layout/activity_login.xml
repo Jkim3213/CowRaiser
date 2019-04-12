@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="222dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/colorPrimary"
         android:contentDescription="@string/AppLogo"
         app:srcCompat="@drawable/releaf_nav_icons0006" />
 
@@ -46,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="61dp"
             android:layout_marginBottom="40dp"
-            android:background="@color/colorPrimaryLight"
+            android:background="@color/colorPrimary"
             android:text="@string/login"
             android:textSize="22sp" />
 
