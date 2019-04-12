@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="222dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/colorPrimaryLight"
+        android:background="@color/colorPrimaryDark"
         android:contentDescription="@string/AppLogo"
         app:srcCompat="@drawable/releaf_nav_icons0006" />
 
