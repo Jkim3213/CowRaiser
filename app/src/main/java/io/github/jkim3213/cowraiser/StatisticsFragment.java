@@ -69,7 +69,11 @@ public class StatisticsFragment extends Fragment {
         List<PieEntry> pieEntries = new ArrayList<>();
         for(Map.Entry<String, Integer> entry : UserProfile.challengeOccurences.entrySet()){
             System.out.printf("Key : %s and Value: %s %n", entry.getKey(), entry.getValue());
-            pieEntries.add(new PieEntry(entry.getValue(), entry.getKey()));
+            if(entry.getValue() > 0) {
+                PieEntry p = new PieEntry(entry.getValue(), entry.getKey());
+                pieEntries.add(p);
+            }
+
         }//non mutable hashmap iteration
 
         //set dataset
@@ -80,49 +84,13 @@ public class StatisticsFragment extends Fragment {
         //chart
         PieChart chart = (PieChart) view.findViewById(R.id.pieChart);
         chart.setData(pieData);
+        chart.setCenterTextColor(Color.BLACK);
+        chart.setEntryLabelColor(Color.BLACK);
+        chart.setEntryLabelTextSize(16f);
         chart.setCenterText("Total Carbon saved" + "\n" + totalCarbon + "lbs" );
         chart.setCenterTextSize(18f);
-        //chart.setCenterTextColor(Color.);
         chart.animateY(1000);
         chart.invalidate();
     }
-//
-//    public void readfromDB(){
-//        rootRef = FirebaseDatabase.getInstance().getReference();
-//        DatabaseReference tripsRef = rootRef.child("Users");
-//        ValueEventListener valueEventListener = new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                List<String> list = new ArrayList<>();
-//                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-//
-////                UserProfile u = new UserProfile();
-////
-////                u.setCarbonLbs(ds.child(userId).getValue(UserProfile.class).getCarbonLbs());
-//
-//                int totalCarbonLb = ds.child(userId).getValue(UserProfile.class).getCarbonLbs();
-//                //int totalEcoDollar = ds.child("Ecodollar").getValue(int.class);
-//                //ArrayList<JournalEntry> entryList = (ArrayList<JournalEntry>) ds.child("list").getValue();
-//                //String departure = ds.child("Departure").getValue(String.class);
-//                //String time = ds.child("Time").getValue(String.class);
-//                //Log.d("TAG", arrival + " / " + departure  + " / " + time);
-//                //list.add(time);
-//
-//                //Log.d("TAG","valuesCar" + u.getCarbonLbs());
-//                //Log.d("TAG","valueseco" +entryList);
-//                //Log.d(tag: "TAG")
-//                }
-//                //Log.d("TAG", time);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                databaseError.toException();
-//            }
-//        };
-//        //tripsRef.addListenerForSingleValueEvent(valueEventListener);
-//    }
-
-
 
 }
