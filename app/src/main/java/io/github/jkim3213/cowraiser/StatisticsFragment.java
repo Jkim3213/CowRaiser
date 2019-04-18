@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 import com.github.mikephil.charting.charts.PieChart;
 
 import com.github.mikephil.charting.data.PieData;
@@ -37,10 +39,7 @@ public class StatisticsFragment extends Fragment {
     private  FirebaseAuth.AuthStateListener mAuthListener;
     //float totalCarbonLb;
     private String userId;
-
-
-    private float rainFall[] = {10.0f, 10.0f, 10.0f, 10.0f, 1.0f, 10.0f, 10.0f};
-    private String dayName[] = {"Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"};
+    private View view;
 
     @Nullable
     @Override
@@ -53,52 +52,29 @@ public class StatisticsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setupPieChart(view);
-
-        //get Firebase instance and userID
-        mAuth = FirebaseAuth.getInstance();
-        mFirebasedatabase = mFirebasedatabase.getInstance();
-        myRef = mFirebasedatabase.getReference();
-        FirebaseUser user = mAuth.getCurrentUser();
-        userId = user.getUid();
-
-        Log.d("Oncreatetestlog", "onCreate() Restoring previous state");
-
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                showData(dataSnapshot);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
-
-    private void showData(DataSnapshot dataSnapshot) {
-        for(DataSnapshot ds: dataSnapshot.getChildren()) {
-
-            UserProfile u = new UserProfile();
-            u.setCarbonLbs(ds.child(userId).getValue(UserProfile.class).getCarbonLbs());
-            Log.d("car", "carbonlbsdisplayed " +  u.getCarbonLbs());
-            Log.d("myTag", "This is my message");
-
-        }
+        this.view = view;
     }
 
     int total = UserProfile.carbonLbs;
     String totalCarbon = Integer.toString(total);
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        setupPieChart(view);
+    }
 
     private void setupPieChart(View view) {
 
         List<PieEntry> pieEntries = new ArrayList<>();
-        for(int i =0; i < rainFall.length; i++) {
-            pieEntries.add(new PieEntry(rainFall[i], dayName[i]));
+        for(Map.Entry<String, Integer> entry : UserProfile.challengeOccurences.entrySet()){
+            System.out.printf("Key : %s and Value: %s %n", entry.getKey(), entry.getValue());
+            if(entry.getValue() > 0) {
+                PieEntry p = new PieEntry(entry.getValue(), entry.getKey());
+                pieEntries.add(p);
+            }
 
-        }
+        }//non mutable hashmap iteration
 
         //set dataset
         PieDataSet dataSet = new PieDataSet(pieEntries, "Carbon Pounds Saved");
@@ -108,49 +84,13 @@ public class StatisticsFragment extends Fragment {
         //chart
         PieChart chart = (PieChart) view.findViewById(R.id.pieChart);
         chart.setData(pieData);
+        chart.setCenterTextColor(Color.BLACK);
+        chart.setEntryLabelColor(Color.BLACK);
+        chart.setEntryLabelTextSize(16f);
         chart.setCenterText("Total Carbon saved" + "\n" + totalCarbon + "lbs" );
         chart.setCenterTextSize(18f);
-        //chart.setCenterTextColor(Color.);
         chart.animateY(1000);
         chart.invalidate();
     }
-//
-//    public void readfromDB(){
-//        rootRef = FirebaseDatabase.getInstance().getReference();
-//        DatabaseReference tripsRef = rootRef.child("Users");
-//        ValueEventListener valueEventListener = new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                List<String> list = new ArrayList<>();
-//                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-//
-////                UserProfile u = new UserProfile();
-////
-////                u.setCarbonLbs(ds.child(userId).getValue(UserProfile.class).getCarbonLbs());
-//
-//                int totalCarbonLb = ds.child(userId).getValue(UserProfile.class).getCarbonLbs();
-//                //int totalEcoDollar = ds.child("Ecodollar").getValue(int.class);
-//                //ArrayList<JournalEntry> entryList = (ArrayList<JournalEntry>) ds.child("list").getValue();
-//                //String departure = ds.child("Departure").getValue(String.class);
-//                //String time = ds.child("Time").getValue(String.class);
-//                //Log.d("TAG", arrival + " / " + departure  + " / " + time);
-//                //list.add(time);
-//
-//                //Log.d("TAG","valuesCar" + u.getCarbonLbs());
-//                //Log.d("TAG","valueseco" +entryList);
-//                //Log.d(tag: "TAG")
-//                }
-//                //Log.d("TAG", time);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                databaseError.toException();
-//            }
-//        };
-//        //tripsRef.addListenerForSingleValueEvent(valueEventListener);
-//    }
-
-
 
 }
