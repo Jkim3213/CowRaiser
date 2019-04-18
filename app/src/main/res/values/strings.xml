@@ -13,14 +13,12 @@
     <string name="light_title">Turn off the lights</string>
     <string name="light_desc">Description placeholder</string>
     <string name="altertransport_title">Alternate Transportation</string>
-    <string name="altertransport_desc">Description placeholder</string>
+    <string name="altertransport_desc">Take a walk. Ride a bike. Not only you reduce carbon footprint, but also improve your health! </string>
     <string name="shower_title">5 min Shower</string>
     <string name="shower_desc">By reducing the duration of your shower, you can reduce the amount of water
-    you use and learn to have a good time.</string>
-    <string name="rice_title">Don\'t Touch My Rice</string>
-    <string name="rice_desc">Description placeholder</string>
+    you use and which takes energy to pump and heat!</string>
     <string name="publtransport_title">Public Transportation</string>
-    <string name="publtransport_desc">Description placeholder</string>
+    <string name="publtransport_desc">Taking public transit is one less car on the road. Less traffic jam and less carbon footprint!</string>
     <string name="challenge_complete_toast">Great Job! %d ecodollars earned</string>
     <string name="user_name">user_name</string>
     <string name="num_carbon_lbs">%d</string>
